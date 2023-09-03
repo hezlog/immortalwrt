@@ -61,6 +61,17 @@ To build your own firmware you need a GNU/Linux, BSD or MacOSX system (case sens
     5. Run `make menuconfig` to select your preferred configuration for the toolchain, target system & firmware packages.
     6. Run `make` to build your firmware. This will download all sources, build the cross-compile toolchain and then cross-compile the GNU/Linux kernel & all chosen applications for your target system.
 
+  - Method 1:
+    ```
+    git clone -b <branch> --single-branch https://github.com/immortalwrt/immortalwrt
+    cd immortalwrt
+    ./scripts/feeds update -a
+    ./scripts/feeds install -a
+    make download -j$(nproc)
+    make menuconfig
+    make V=s -j$(nproc)
+    ```
+
   - Method 2:
     <details>
       <summary>Build image via OPDE</summary>
